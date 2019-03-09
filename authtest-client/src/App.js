@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation, useApolloClient } from "react-apollo-hooks";
 import gql from "graphql-tag";
 
@@ -28,7 +28,7 @@ const queryThree = gql`
 
 
 export default function App() {
-  const [isTokenPresent, setIsTokenPresent] = useState(false);
+  const [isTokenPresent, setIsTokenPresent] = useState(localStorage.getItem("token") !== null);
   const [resultOne, setResultOne] = useState("");
   const [resultTwo, setResultTwo] = useState("");
   const [resultThree, setResultThree] = useState("");
