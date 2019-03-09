@@ -23,3 +23,8 @@ a button for each query.
 If not authenticated, queryOne should run, and queries two and three should fail.
 If authenticated, queryOne should run, queryTwo should also run and queryThree should fail, because the user does not have ROLE3,
 but it does not fail and runs normaly.
+
+# How to run the project
+Run authtest in visual studio
+
+Run authtest-client with yarn start (do a yarn install first). Check package.json if the port for the authtest server is the correct one on the "proxy" entry.
