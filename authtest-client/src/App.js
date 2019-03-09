@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation, useApolloClient } from "react-apollo-hooks";
 import gql from "graphql-tag";
 
 const authenticationMutation = gql`
-  mutation ($id: String!) {
-    authenticate(id: $id)
+  mutation ($login: Login!) {
+    newAuthentication(login: $login)
   }
 `;
 
@@ -36,10 +36,10 @@ export default function App() {
   const apolloClient = useApolloClient();
 
   async function authenticate() {
-    const result = await authMutation({variables: {id: "test"}});
+    const result = await authMutation({variables: {login: {id: "test", password: "test"}}});
     console.log(result);
-    if (result.data.authenticate) {
-      await localStorage.setItem("token", result.data.authenticate);
+    if (result.data.newAuthentication) {
+      await localStorage.setItem("token", result.data.newAuthentication);
       setIsTokenPresent(true);
     }
   }

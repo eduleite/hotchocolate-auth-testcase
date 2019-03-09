@@ -25,8 +25,10 @@ namespace authtest
             services.AddGraphQL(LoadSchema(), configuration =>
             {
                 configuration.RegisterAuthorizeDirectiveType();
+                configuration.Options.StrictValidation = true;
                 configuration.BindResolver<QueryResolver>().To("Query");
                 configuration.BindResolver<MutationResolver>().To("Mutation");
+                configuration.BindType<Login>().To("Login");
             });
 
             services.AddAuthentication(configuration =>

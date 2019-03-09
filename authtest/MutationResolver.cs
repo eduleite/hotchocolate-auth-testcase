@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using HotChocolate.Resolvers;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -31,6 +32,11 @@ namespace authtest
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public string NewAuthentication(Login login, IResolverContext context)
+        {
+            return Authenticate(login.Id);
         }
 
     }

@@ -5,6 +5,12 @@ type Query {
 	queryThree: String! @authorize(roles: "ROLE3")
 }
 
+input Login {
+	id: String!
+	password: String!
+}
+
 type Mutation {
 	authenticate(id: String!): String!
+	newAuthentication(login: Login!): String!
 }
