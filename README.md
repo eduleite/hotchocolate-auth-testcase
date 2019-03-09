@@ -5,8 +5,11 @@ The authtest is the graphql server, using JWT authentication and authorization.
 
 The mutation is responsible for creating a token.
 There are 3 fields on the query.
+
 queryOne does not need authorization
+
 queryTwo needs ROLE1
+
 queryThree needs ROLE3.
 
 The token returned by the mutation only has 2 roles: ROLE1 and ROLE2.
