@@ -1,0 +1,10 @@
+﻿
+type Query {
+	queryOne: String! 
+	queryTwo: String! @authorize(roles: "ROLE1")
+	queryThree: String! @authorize(roles: "ROLE3")
+}
+
+type Mutation {
+	authenticate(id: String!): String!
+}
